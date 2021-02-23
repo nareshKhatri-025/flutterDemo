@@ -5,7 +5,7 @@ import 'package:http/http.dart'as http;
 
 class ApiData {
 
-  static const String _apiUrl="https://reqres.in/api/users?page=1";
+  static const String _apiUrl="https://reqres.in/api/users";
 
   Future<List<Datum>> getProfileData()async
   {

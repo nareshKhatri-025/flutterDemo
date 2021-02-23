@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 class ApiCallController extends GetxController
 {
+  var isDatLoaded=false.obs;
   ApiData _apiData=ApiData();
   var datum=List<Datum>().obs;
   @override
@@ -12,6 +13,7 @@ class ApiCallController extends GetxController
     super.onInit();
     var _res=await _apiData.getProfileData();
     datum.addAll(_res);
+    isDatLoaded(true);
   }
 
 }

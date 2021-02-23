@@ -13,14 +13,14 @@ class _ApiCallScreenState extends State<ApiCallScreen> {
   Widget build(BuildContext context) {
     return Container(
       width: Get.width,
-      child: ListView.builder(
+      child:Obx(()=>!controller.isDatLoaded.value?Center(child:CircularProgressIndicator()): ListView.builder(
           itemCount: controller.datum.length,
           itemBuilder: (context, index) => ListTile(
                 subtitle: Text("${controller.datum[index].email}"),
                 leading: Image.network(controller.datum[index].avatar),
                 title: Text(
                     "${controller.datum[index].firstName} ${controller.datum[index].lastName}"),
-              )),
+              )),)
     );
   }
 }

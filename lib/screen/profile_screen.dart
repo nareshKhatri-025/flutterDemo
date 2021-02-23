@@ -7,16 +7,20 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  LoginController _controller=Get.put(LoginController());
+  LoginController _controller=Get.find();
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: Get.height,
+      width: Get.width,
       child: Center(
+
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.network(_controller.userProfile["picture"]["data"]["url"], height: 50.0, width: 50.0,),
-            Text(_controller.userProfile["name"]),
-            Text("Email: "+_controller.userProfile["email"])
+            Image.network(_controller.userProfile["picture"]["data"]["url"]),
+            Text(_controller.userProfile["name"],style: TextStyle(fontSize: 28),),
+             Text("Email: "+_controller.userProfile["email"])
           ],
         ),
       ),

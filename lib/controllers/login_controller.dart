@@ -9,7 +9,7 @@ class LoginController extends GetxController{
   var isLoggedIn=false.obs;
   var userProfile=Map().obs;
   final  facebookLogin=FacebookLogin();
-  loginWithFacebook()async{
+  Future loginWithFacebook()async{
     final result = await facebookLogin.logIn(['email']);
 
     switch (result.status) {
@@ -18,9 +18,8 @@ class LoginController extends GetxController{
            final graphResponse = await http.get('https://graph.facebook.com/v2.12/me?fields=name,picture,email&access_token=${token}');
            final profile = JSON.jsonDecode(graphResponse.body);
            print(profile);
-           userProfile = profile.obs;
-           isLoggedIn = true.obs;
-           Get.to(DashBoardScreen());
+           userProfile(profile);
+           isLoggedIn(true);
            break;}
 
       case FacebookLoginStatus.cancelledByUser:

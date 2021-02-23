@@ -16,19 +16,18 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // ignore: unrelated_type_equality_checks
-    return _loginController.isLoggedIn==false?Scaffold(
+    return _loginController.isLoggedIn.value==true?Get.to(DashBoardScreen()): Scaffold(
       appBar: AppBar(
         title: Text("Login"),
 
       ),
       body: Center(
         child: FlatButton(
-          onPressed: (){_loginController.loginWithFacebook(); },
+          onPressed: (){_loginController.loginWithFacebook().whenComplete(() => Get.to(DashBoardScreen())); },
           child: Text("Login with Facebook",style: TextStyle(color:Colors.white),),
           color: Colors.blue,
         ),
       ),
-    ):Get.offAll(DashBoardScreen());
+    );
   }
 }

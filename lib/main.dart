@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/screen/dashboard_screen.dart';
+import 'package:flutter_demo/screen/login_screen.dart';
 import 'package:get/get.dart';
 
 void main() {
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Flutter Demo',
-   home: DashBoardScreen(),
+   home: LoginScreen(),
     );
   }
 }
